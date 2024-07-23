@@ -12,8 +12,8 @@ const Register = async ({params : { userId}} : SearchParamProps) => {
     <div className="flex h-screen max-h-screen">
 
     {/* TODO OTP VERIFICATION */}
-    <section className="remove-scrollbar container my-auto">
-      <div className="sub-container max-w-[496px]">
+    <section className="remove-scrollbar container">
+      <div className="sub-container max-w-[860px] flex-1 flex-col py-10">
         <Image
           src="/assets/icons/logo-full.svg"
           alt="patient"
@@ -24,14 +24,12 @@ const Register = async ({params : { userId}} : SearchParamProps) => {
 
        <RegisterForm user = {user} />
 
-        <div className="text-14-regular mt-20 flex justify-between">
-          <p className="justify-items-end text-dark-600 xl:text-left">
+       
+          <p className="copyright pr-12">
             © 2024 CarePulse
           </p>
-          <Link href="/?admin=true" className="text-green-500">
-            Admin
-          </Link>
-        </div>
+        
+        
       </div>
     </section>
 
