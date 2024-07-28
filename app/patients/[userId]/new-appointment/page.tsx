@@ -6,7 +6,6 @@ import Image from "next/image"
 const NewAppointment = async ({params : {userId}} : SearchParamProps) => {
   
     const patient = await getPatient(userId)
-
     return (
      <div className="flex h-screen max-h-screen">
 

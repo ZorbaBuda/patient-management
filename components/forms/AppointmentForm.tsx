@@ -12,7 +12,7 @@ import CustomFormField from "../form-fields/CustomFormField";
 import { SelectItem } from "../ui/select";
 import Image from "next/image";
 import { createAppointment } from "@/lib/actions/appointment.actions";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const AppointmentForm = ({
   userId,
@@ -41,7 +41,7 @@ const AppointmentForm = ({
 
   async function onSubmit(values: z.infer<typeof AppointmentFormValidation>) {
     setIsLoading(true);
-
+  
     let status;
     switch (type) {
       case "schedule":
@@ -56,6 +56,7 @@ const AppointmentForm = ({
     }
 
     let formData = new FormData();
+    console.log(formData)
 
     try {
       if (type === "create" && patientId) {
