@@ -85,7 +85,8 @@ export const columns: ColumnDef<Appointment>[] = [
           type="cancel"
           patientId = {data.patient.$id}
           userId={data.userId}
-          appointmentId={data}
+          appointmentId={data.$id}
+          appointment={data}
          />
         </div>
       )

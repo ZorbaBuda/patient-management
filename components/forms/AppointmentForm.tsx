@@ -36,11 +36,11 @@ const AppointmentForm = ({
   const form = useForm<z.infer<typeof AppointmentFormValidation>>({
     resolver: zodResolver(AppointmentFormValidation),
     defaultValues: {
-      primaryPhysician: "",
-      schedule: new Date(),
-      reason: "",
-      note: "",
-      cancellationReason: "",
+      primaryPhysician: appointment ? appointment.primaryPhysician : "",
+      schedule: appointment ? new Date(appointment?.schedule) : new Date(Date.now()),
+      reason: appointment ? appointment.reason : "",
+      note: appointment?.note || "",
+      cancellationReason: appointment?.cancellationReason || ""
     },
   });
 
@@ -132,12 +132,14 @@ const AppointmentForm = ({
         onSubmit={form.handleSubmit(onSubmit)}
         className="space-y-12 flex-1"
       >
+         {type === 'create' && 
         <section className="space-y-4">
+         
           <h1 className="header">New Appointment</h1>
           <p className="text-dark-700">
             Request a new appointment in 10 seconds
           </p>
-        </section>
+        </section>} 
 
         {type !== "cancel" && (
           <>

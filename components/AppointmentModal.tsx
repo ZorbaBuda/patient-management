@@ -16,10 +16,11 @@ type AppointmentModalProps = {
     type : 'schedule' | 'cancel',
     patientId : string,
     userId : string,
-    appointmentId? : Appointment
+    appointmentId? : string,
+    appointment : Appointment
 }
 
-const AppointmentModal = ({type, patientId, userId, appointmentId} : AppointmentModalProps) => {
+const AppointmentModal = ({type, patientId, userId, appointmentId, appointment} : AppointmentModalProps) => {
     const [open,setOpen] = useState(false)
   return (
     <Dialog open={open} onOpenChange={setOpen}>
